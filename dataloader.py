@@ -99,4 +99,5 @@ class MELDDataset(Dataset):
 
     def collate_fn(self, data):
         dat = pd.DataFrame(data)
-        return [pad_sequence(dat[i]) if i<3 else pad_sequence(dat[i], True) if i<5 else dat[i].tolist() for i in dat]
+#         return [pad_sequence(dat[i]) if i<3 else pad_sequence(dat[i], True) if i<5 else dat[i].tolist() for i in dat]
+        return [pad_sequence(dat[i][0]) if i<3 else pad_sequence(dat[i][0], True) if i<5 else dat[i][0].tolist() for i in dat]
